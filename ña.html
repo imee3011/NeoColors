@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Página de Colores - Grid Layout</title>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .fondofondo {
+      display: grid;
+      grid-template-rows: 70px 1fr;
+      width: 100%;
+      min-height: 100vh;
+      padding: 0.5rem;
+    }
+
+    .barra {
+      background-color: white;
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr 1fr 6fr 10fr 14fr;
+      align-items: center;
+      padding: 0 50px;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    .img2{
+     grid-column: 10/14;
+     padding: 0.5rem;
+    }
+    .logoletra {
+      color: black;
+      font-size: 30px;
+      letter-spacing: -1px;
+      grid-column: 1/2;
+      padding: 0.5rem;
+    }
+
+    .contenido {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      position: relative;
+      padding: 0.5rem;
+    }
+
+    .imagencentro {
+      background-image: url("fondo10.jpg");
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr 1fr;
+      grid-template-rows: 1fr 4fr 1fr 1fr;
+      height: 400px; /* Increased height */
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .letradelaimagen {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      max-width: 500px;
+      text-align: center;
+      grid-column: 2/3;
+      grid-row: 2/3;
+      justify-self: center;
+      align-self: center;
+      padding: 0.5rem;
+    }
+
+    .color-tools {
+      position: relative;
+      height: 580px;
+      background: rgb(255, 232, 201);
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr 1fr;
+      grid-template-rows: 1fr 4fr 1fr 1fr;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .svg-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .tools-grid {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px; 
+      padding: 20px;
+      height: 100%;
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+
+    .left-section {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 30px; 
+      padding: 0.5rem;
+    }
+
+    .right-section {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 40px; /* Increased gap between sections */
+      padding: 0.5rem;
+    }
+
+    .wheel-section {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 30px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .tones-section {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px; /* Increased gap */
+      align-self: start;
+      margin-top: 10px; /* Added margin */
+      padding: 0.5rem;
+    }
+
+    .proximity-section {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 25px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .proximity-colors {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .triadic-section {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 25px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .triadic-colors {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .square-section {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 25px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .square-colors {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 15px; /* Increased gap */
+      padding: 0.5rem;
+    }
+
+    .section-title {
+      font-weight: normal;
+      font-size: 30px;
+      margin-bottom: 5px; /* Added margin */
+      padding: 0.5rem;
+    }
+
+    .color-box {
+      background-color: white;
+      border-radius: 10px;
+      font-size: 20px;
+      text-align: center;
+      padding: 15px; /* Increased padding */
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      height: 65px; /* Set fixed height */
+      margin: 0.5rem;
+    }
+
+    .main-color-box {
+      height: 70px; /* Increased height */
+      font-size: 30px;
+    }
+
+    #rueda {
+      width: 100%;
+      height: 250px;
+      border-radius: 20px;
+      align-self: center;
+      justify-self: center;
+      margin-bottom: 10px; /* Added margin */
+      padding: 0.5rem;
+    }
+
+    .transition-color {
+      transition: all 2s;
+    }
+  </style>
+</head>
+<body>
+  <div class="fondofondo">
+    <header class="barra">
+      <h1 class="logoletra">NEOCOLORS</h1>
+      <div></div>
+      <img src="NEO.png" width="60px" height="60px" class="img2">
+
+    </header>
+
+    <div class="contenido">
+      <div class="imagencentro">
+        <div class="letradelaimagen">
+          <p>Disfruta de estas paletas de colores y de esta nueva herramienta para nuestra institución</p>
+        </div>
+      </div>
+
+      <div class="color-tools">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 540" class="svg-background">
+          <rect x="0" y="0" width="1250" height="540" style="stroke: rgb(242, 212, 173); fill: rgb(255, 232, 201);" id="co1" class="transition-color"/>
+          <path style="fill: rgb(240, 217, 145); stroke: rgb(240, 217, 145);" d="M 0.244 541.668 C 0.244 541.668 1250.59 541.668 1247.92 542.976 C 1245.27 544.285 1253.25 253.683 1250.59 251.064 C 1247.92 248.446 1210.72 217.031 1164.22 243.211 C 1117.71 269.39 1091.14 296.88 1072.54 315.207 C 1053.93 333.533 1028.69 295.571 1007.43 269.39 C 986.168 243.211 960.192 210.485 923.717 226.193 C 887.242 241.901 898.64 224.027 867.911 268.082 C 837.181 312.137 834.451 308.9 833.363 328.297 C 832.275 347.694 707.134 387.203 707.134 341.386 C 707.134 295.571 687.202 273.317 642.025 272.009 C 596.849 270.701 581.457 296.689 571.602 306.043 C 561.746 315.397 558.605 369.275 562.301 370.186 L 539.713 361.023 C 539.713 361.023 539.713 342.697 518.453 333.533 C 497.193 324.369 456.002 349.241 456.002 349.241 C 456.002 349.241 432.084 353.169 444.043 378.039 C 456.001 402.91 388.236 392.44 376.278 376.731 C 364.32 361.022 332.43 300.807 332.43 300.807 C 332.43 300.807 321.8 258.919 289.91 269.39 C 258.02 279.863 235.431 285.099 240.747 307.353 C 246.063 329.606 224.801 364.95 224.801 364.95 C 224.801 364.95 211.515 351.859 191.583 341.386 C 171.651 330.915 199.555 296.88 176.967 287.717 C 154.379 278.553 111.859 248.446 110.53 290.335 C 109.202 332.225 114.462 336.696 111.859 359.713 C 109.256 382.731 86.423 407.96 94.585 388.512 C 102.746 369.064 52.066 328.297 52.066 328.297 C 52.066 328.297 58.71 308.662 48.08 295.571 C 37.45 282.48 32.134 266.772 22.834 273.317 C 13.533 279.863 1.574 273.317 -1.084 300.807 C -3.742 328.297 0.244 392.44 -1.084 393.748 C -2.412 395.057 -2.412 546.905 0.244 541.668 Z" id="co2" class="transition-color"/>
+          <path style="fill: rgb(231, 203, 115); stroke: rgb(231, 203, 115);" d="M -0.569 540.88 C -0.569 540.88 1248.62 539.813 1246.06 540.91 C 1243.5 542.008 1251.2 298.287 1248.62 296.091 C 1246.06 293.895 1210.2 267.548 1165.37 289.504 C 1120.54 311.46 1094.92 334.516 1076.98 349.885 C 1059.05 365.255 1034.71 333.418 1014.22 311.46 C 993.725 289.504 968.684 262.058 933.522 275.231 C 898.36 288.405 909.348 273.416 879.724 310.363 C 850.099 347.311 847.468 344.596 846.419 360.864 C 845.37 377.132 724.732 410.267 724.732 371.842 C 724.732 333.418 705.519 314.754 661.968 313.656 C 618.417 312.559 603.579 334.355 594.078 342.2 C 584.577 350.045 581.55 395.231 585.113 395.995 L 563.337 388.31 C 563.337 388.31 563.337 372.941 542.843 365.255 C 522.347 357.57 482.639 378.429 482.639 378.429 C 482.639 378.429 459.583 381.723 471.11 402.581 C 482.638 423.44 417.311 414.659 405.784 401.484 C 394.256 388.309 363.514 337.809 363.514 337.809 C 363.514 337.809 353.266 302.678 322.524 311.46 C 291.781 320.244 270.007 324.635 275.131 343.299 C 280.255 361.962 259.758 391.604 259.758 391.604 C 259.758 391.604 246.95 380.625 227.735 371.842 C 208.522 363.059 235.422 334.516 213.646 326.83 C 191.871 319.145 150.88 293.895 149.601 329.026 C 148.32 364.158 153.39 367.908 150.88 387.211 C 148.372 406.516 126.361 427.676 134.228 411.365 C 142.096 395.054 93.24 360.864 93.24 360.864 C 93.24 360.864 99.644 344.396 89.397 333.418 C 79.15 322.438 74.026 309.264 65.059 314.754 C 56.094 320.244 0.714 322.226 -1.848 345.281 C -4.41 368.336 -1.897 438.141 -3.177 439.238 C -4.458 440.336 -3.129 545.272 -0.569 540.88 Z" id="co3" class="transition-color"/>
+          <path style="fill: rgb(242, 205, 87); stroke: rgb(242, 205, 87);" d="M 8.863 542.991 C 8.863 542.991 1251.4 542.142 1248.85 543.016 C 1246.31 543.889 1253.97 349.933 1251.4 348.185 C 1248.85 346.437 1213.18 325.47 1168.59 342.943 C 1123.99 360.415 1098.51 378.764 1080.67 390.994 C 1062.84 403.227 1038.63 377.89 1018.24 360.415 C 997.857 342.943 972.95 321.101 937.974 331.584 C 903 342.067 913.93 330.139 884.464 359.542 C 854.997 388.947 852.379 386.786 851.336 399.732 C 850.292 412.678 730.297 439.047 730.297 408.468 C 730.297 377.89 711.186 363.037 667.867 362.163 C 624.548 361.291 609.789 378.636 600.339 384.879 C 590.889 391.122 587.877 427.081 591.421 427.69 L 569.761 421.573 C 569.761 421.573 569.761 409.343 549.376 403.227 C 528.99 397.11 489.493 413.71 489.493 413.71 C 489.493 413.71 466.56 416.332 478.025 432.93 C 489.492 449.531 424.514 442.543 413.048 432.058 C 401.581 421.573 370.999 381.385 370.999 381.385 C 370.999 381.385 360.808 353.426 330.234 360.415 C 299.646 367.406 277.989 370.9 283.091 385.753 C 288.193 400.606 267.798 424.195 267.798 424.195 C 267.798 424.195 255.055 415.458 235.948 408.468 C 216.84 401.479 243.587 378.764 221.93 372.648 C 200.271 366.531 159.506 346.437 158.23 374.395 C 156.954 402.353 161.995 405.337 159.506 420.699 C 157.004 436.062 135.111 452.902 142.937 439.921 C 150.762 426.941 102.17 399.732 102.17 399.732 C 102.17 399.732 108.536 386.626 98.345 377.89 C 88.154 369.152 83.051 358.668 74.136 363.037 C 65.22 367.406 10.139 368.984 7.588 387.33 C 5.037 405.678 0.068 450.025 -1.207 450.898 C -2.483 451.772 6.312 546.486 8.863 542.991 Z" id="co4" class="transition-color"/>
+        </svg>
+
+        <div class="tools-grid">
+          <div class="left-section">
+            <h2 class="section-title">Rueda de colores</h2>
+            
+            <div class="wheel-section">
+              <input type="color" id="rueda" onchange="actualiza(),crea()">
+              <div class="color-box main-color-box" id="r1" onclick="copiar()"></div>
+              
+              <div class="tones-section">
+                <div class="color-box" id="t1" onclick="copiar1()"></div>
+                <div class="color-box" id="t2" onclick="copiar2()"></div>
+                <div class="color-box" id="t3" onclick="copiar3()"></div>
+                <div class="color-box" id="t4" onclick="copiar4()"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="right-section">
+            <div class="proximity-section">
+              <h2 class="section-title">Proximidad</h2>
+              <div class="proximity-colors">
+                <div class="color-box" id="p1" onclick="copiar()"></div>
+                <div class="color-box" id="p2" onclick="copiar5()"></div>
+                <div class="color-box" id="p3" onclick="copiar6()"></div>
+              </div>
+            </div>
+
+            <div class="triadic-section">
+              <h2 class="section-title">Triadas</h2>
+              <div class="triadic-colors">
+                <div class="color-box" id="tr1" onclick="copiar()"></div>
+                <div class="color-box" id="tr2" onclick="copiar7()"></div>
+                <div class="color-box" id="tr3" onclick="copiar8()"></div>
+              </div>
+            </div>
+
+            <div class="square-section">
+              <h2 class="section-title">Cuadrangular</h2>
+              <div class="square-colors">
+                <div class="color-box" id="c1" onclick="copiar()"></div>
+                <div class="color-box" id="c2" onclick="copiar9()"></div>
+                <div class="color-box" id="c3" onclick="copiar10()"></div>
+                <div class="color-box" id="c4" onclick="copiar11()"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    x=rueda.value
+    r1.innerHTML=x
+    function actualiza(){
+        x=rueda.value
+        r1.innerHTML=x
+        r1.style.background=x
+        y1=adjustBrightness(x, -130)
+        y2=adjustBrightness(x, -30)
+        y3=adjustBrightness(x, 30)
+        y4=adjustBrightness(x, 130)
+        t1.style.background=y1
+        t2.style.background=y2
+        t3.style.background=y3
+        t4.style.background=y4
+        t1.innerHTML=y1
+        t2.innerHTML=y2
+        t3.innerHTML=y3
+        t4.innerHTML=y4
+        co1.style.fill=y4
+        co2.style.fill=y3
+        co3.style.fill=y2
+        co4.style.fill=y1
+        co1.style.stroke=y4
+        co2.style.stroke=y3
+        co3.style.stroke=y2
+        co4.style.stroke=y1
+    }
+    
+    function adjustBrightness(col, tono) {
+      col=col.replace(/^#/, '');
+      num =parseInt(col, 16);
+      r =(num >> 16) + tono;
+      g =((num >> 8) & 0x00FF) + tono;
+      b =(num & 0x0000FF) + tono;
+      
+      r=Math.min(255,Math.max(0, r));
+      g=Math.min(255,Math.max(0, g));
+      b=Math.min(255,Math.max(0, b));
+
+      return `#${(r << 16 | g << 8 | b).toString(16).padStart(6, '0')}`;
+    }
+    
+    function copiar1(){
+      texto = document.getElementById("t1").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar2(){
+      texto = document.getElementById("t2").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar3(){
+      texto = document.getElementById("t3").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar4(){
+      texto = document.getElementById("t4").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar(){
+      texto = document.getElementById("r1").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar5(){
+      texto = document.getElementById("p2").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar6(){
+      texto = document.getElementById("p3").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar7(){
+      texto = document.getElementById("tr2").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar8(){
+      texto = document.getElementById("tr3").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar9(){
+      texto = document.getElementById("c2").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar10(){
+      texto = document.getElementById("c3").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function copiar11(){
+      texto = document.getElementById("c4").innerText
+      navigator.clipboard.writeText(texto)
+      alert("Texto copiado al portapapeles: " + texto);  
+    }
+    
+    function crea() {
+      x=rueda.value
+      vec1=hexAHSL(x)
+      console.log(vec1)
+      hexin=hslToHex(vec1[0],vec1[1],vec1[2])
+      console.log(hexin)
+      vec2=(obtenerColoresProximidad(vec1[0],vec1[1],vec1[2]))
+      vec3=(obtenerColoresTriadicos(vec1[0],vec1[1],vec1[2]))
+      vec4=(obtenerColoresCuadrados(vec1[0],vec1[1],vec1[2]))
+      paletin()
+    } 
+    
+    function obtenerColoresProximidad(h, s, l) {
+      return [
+        hslToHex((h + 60) % 360, s, l),
+        hslToHex((h + 120) % 360, s, l)  
+      ];
+    }
+
+    function obtenerColoresTriadicos(h, s, l) {
+      return [
+        hslToHex((h + 120) % 360, s, l),
+        hslToHex((h + 240) % 360, s, l)
+      ];
+    }
+
+    function obtenerColoresCuadrados(h, s, l) {
+      return [
+        hslToHex((h + 90) % 360, s, l),
+        hslToHex((h + 180) % 360, s, l),
+        hslToHex((h + 270) % 360, s, l)
+      ];
+    }
+    
+    function hexAHSL(H) {
+      r = parseInt(H.substring(1, 3), 16) / 255,
+      g = parseInt(H.substring(3, 5), 16) / 255,
+      b = parseInt(H.substring(5, 7), 16) / 255;
+
+      max = Math.max(r, g, b), min = Math.min(r, g, b);
+      h= (max + min) / 2, s= (max + min) / 2, l = (max + min) / 2;
+      console.log(s)
+
+      if (max === min) {
+        h = s = 0; 
+      } else {
+        d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+
+      return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+    }
+
+    function hslToHex(h, s, l) {
+      s /= 100;
+      l /= 100;
+      c = (1 - Math.abs(2 * l - 1)) * s,
+      x = c * (1 - Math.abs((h / 60) % 2 - 1)),
+      m = l - c / 2,
+      r, g, b;
+      if (h < 60) { r = c; g = x; b = 0; }
+      else if (h < 120) { r = x; g = c; b = 0; }
+      else if (h < 180) { r = 0; g = c; b = x; }
+      else if (h < 240) { r = 0; g = x; b = c; }
+      else if (h < 300) { r = x; g = 0; b = c; }
+      else { r = c; g = 0; b = x; }
+      return `#${((1 << 24) + (Math.round((r + m) * 255) << 16) + (Math.round((g + m) * 255) << 8) + Math.round((b + m) * 255)).toString(16).slice(1).toUpperCase()}`
+    }
+    
+    function paletin() {
+      x=rueda.value
+      p1.style.background=x
+      p2.style.background=vec2[0]
+      p3.style.background=vec2[1]
+      p1.innerHTML=x
+      p2.innerHTML=vec2[0]
+      p3.innerHTML=vec2[1]
+      tr1.style.background=x
+      tr2.style.background=vec3[0]
+      tr3.style.background=vec3[1]
+      tr1.innerHTML=x
+      tr2.innerHTML=vec3[0]
+      tr3.innerHTML=vec3[1]
+      c1.style.background=x
+      c2.style.background=vec4[0]
+      c3.style.background=vec4[1]
+      c4.style.background=vec4[2]
+      c1.innerHTML=x
+      c2.innerHTML=vec4[0]
+      c3.innerHTML=vec4[1]
+      c4.innerHTML=vec4[2]
+    }
+  </script>
+</body>
+</html>

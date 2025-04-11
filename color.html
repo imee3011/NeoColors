@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Paginas de colores HOME</title>
+		<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+html {
+	font-size: 62.5%;
+	font-family: 'Poppins', sans-serif;
+}
+
+
+.titulos1 {
+	text-align: center;
+	font-weight: normal;
+	font-size: 30px;
+}
+
+.titulos2 {
+	position: absolute;
+	top: 1080px;
+	left: 540px;
+	font-weight: normal;
+	font-size: 30px;
+}
+
+.logofondo{
+	background-color: white;
+	position: relative;
+	width: 1335px;
+	height: 70px;
+}
+
+
+.logoletra {
+	color: black;
+	font-size: 30px;
+	position: absolute;
+	left: 50px;
+	top: -8px;
+	letter-spacing: -1px;
+}
+
+.imagencentro {
+	background-image: linear-gradient(90deg, #000000, #00000020),
+	url("fondo10.jpg");
+	height: 550px;
+	background-size: cover;
+	background-position: center;
+}
+
+.letradelaimagen {
+	position: absolute;
+	top: 270px;
+	left: 200px;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	width: 500px;
+}
+
+
+.cuadro1 {
+	position: absolute;
+	left: 30px;
+	background: url("Paleta1.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 300px;
+	border-radius: 20px;
+	transition: all 1s;
+	
+}
+.cuadro1:hover{
+	background: url("infopaleta1.png");
+	background-size: cover;
+}
+
+.cuadro2 {
+	position: absolute;
+	left: 360px;
+	background: url("Paleta2.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 300px;
+	border-radius: 20px;
+	transition: all 1s;
+	
+}
+.cuadro2:hover{
+	background: url("infopaleta2.png");
+	background-size: cover;
+}
+
+
+.cuadro3 {
+	position: absolute;
+	left: 690px;
+	background: url("Paleta3.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 300px;
+	border-radius: 20px;
+	transition: all 1s;
+}
+.cuadro3:hover{
+	background: url("infopaleta3.png");
+	background-size: cover;
+}
+
+
+.cuadro4 {
+	position: absolute;
+	left: 1020px;
+	background: url("Paleta4.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 300px;
+	border-radius: 20px;
+	transition: all 1s;
+
+}
+.cuadro4:hover{
+	background: url("infopaleta4.png");
+	background-size: cover;
+}
+
+#neoimg{
+	position: relative;
+	left: -100000px;
+	width: 40px;
+	left: 40px;
+}
+
+#rueda{
+			position: absolute;
+			top: 1200px;
+			left: 100px;
+			width: 400px;
+			height: 400px;
+			border-radius: 20px;
+		}
+		.rueda1{
+			position: absolute;
+			top: 1200px;
+			left: 700px;
+			width: 400px;
+			height: 100px;
+			border-radius: 20px;
+			background: #ECDADA;
+			font-family: 'Poppins', sans-serif;
+			font-size: 50px;
+			text-align: center;
+		}
+
+.img2{
+	position: absolute;
+	left: 1250px;
+	top: 8.5px;
+}
+.img3{
+	position: absolute;
+	left: 1185px;
+	top: 10px;
+}
+		</style>
+</head>
+<body>
+<div class="logofondo">
+	<h1 class="logoletra"><a> PÁGINA DE COLORES </a></h1>
+</div>
+					
+
+
+<div class="imagencentro">
+	<div class="letradelaimagen">
+		<p>Disfruta de estas paletas de colores y de esta nueva herramienta para nuestra institución</p>
+	</div>
+</div>
+<br>
+		
+<h1 class="titulos1">Paletas de colores</h1><br>
+<div></div>
+<div class="cuadro1"></div>
+<div class="cuadro2"></div>
+<div class="cuadro3"></div>
+<div class="cuadro4"></div>
+<h1 class="titulos2">Rueda de colores</h1>
+<div class="rueda1" id="r1"></div>
+ <br><br><br>
+</div>
+<img src="NEO.png" width="60px" height="60px" class="img2">
+<img src="logoimg.png" width="55.5px" height="55.5px" class="img3">
+<input type="color" id="rueda" onchange="actualiza()">	
+<script>
+	x=rueda.value
+	r1.innerHTML=x
+	function actualiza(){
+		x=rueda.value
+		r1.innerHTML=x
+		r1.style.background=x
+
+	}
+</script>					
+</body>
+</html>
